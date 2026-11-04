@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Алпамыс батыр — қазақ халқының батырлық жыры</title>
+<meta name="description" content="«Алпамыс батыр» — ерлік, адалдық және туған жерге деген махаббат туралы халық жыры.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;700;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0e1c33;
+  --night-2:#16294a;
+  --sky:#1d8a93;
+  --gold:#d9ac52;
+  --gold-soft:#f0d79a;
+  --paper:#f2f5f4;
+  --card:#ffffff;
+  --ink:#1b2433;
+  --muted:#556070;
+  --line:#d8dfdf;
+  --serif:"Noto Serif",Georgia,"Times New Roman",serif;
+  --sans:"Noto Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24' fill='none' stroke='%23d9ac52' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 12c0-6 8-8 10-3s-5 6-6 2M44 12c0-6-8-8-10-3s5 6 6 2M14 12h20'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0b1424;--card:#121f36;--ink:#e8edf3;--muted:#a3b0c2;--line:#233350}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);line-height:1.2}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+.top{position:relative;background:radial-gradient(120% 90% at 50% 0%,var(--night-2),var(--night) 70%);color:#fff;text-align:center;padding:96px 20px 110px;overflow:hidden}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;background:var(--orn) repeat-x center/48px 24px;opacity:.9}
+.moon{position:absolute;top:-70px;right:-70px;width:260px;height:260px;border-radius:50%;border:2px solid #d9ac5244;box-shadow:0 0 0 24px #d9ac520d,0 0 0 56px #d9ac5208}
+.top h1{font-size:clamp(46px,9vw,96px);font-weight:800;letter-spacing:.01em;color:#fff}
+.top .sub{margin:14px auto 0;max-width:34ch;font-family:var(--serif);font-size:clamp(18px,2.6vw,24px);color:var(--gold-soft)}
+.top .lead{margin:28px auto 0;max-width:62ch;color:#cdd7e6;font-size:18px}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-block;padding:13px 28px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s,background .2s}
+.btn.gold{background:var(--gold);color:#1a1405}
+.btn.line{border:2px solid #ffffff55;color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold:hover{background:var(--gold-soft)}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:20;background:#0e1c33ee;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff1f}
+nav ul{list-style:none;display:flex;justify-content:center;gap:4px;padding:10px 12px;overflow-x:auto;scrollbar-width:none}
+nav a{display:block;padding:8px 16px;border-radius:999px;color:#cdd7e6;text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap;transition:background .2s,color .2s}
+nav a:hover{color:#fff;background:#ffffff14}
+nav a.on{background:var(--gold);color:#1a1405}
+
+/* Layout */
+main{max-width:1040px;margin:0 auto;padding:0 20px}
+.block{padding:84px 0 0}
+.block>h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:8px}
+.block>h2::after{content:"";display:block;width:64px;height:4px;margin-top:14px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--sky))}
+.block>.intro{margin-top:22px;max-width:68ch;color:var(--muted)}
+.block p+p{margin-top:14px}
+
+/* Facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:-48px;position:relative;z-index:2;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px -22px #0e1c3366;overflow:hidden}
+.fact{padding:26px 28px}
+.fact+.fact{border-left:1px solid var(--line)}
+.fact b{display:block;font-family:var(--serif);font-size:20px;color:var(--sky)}
+.fact span{color:var(--muted);font-size:15px}
+
+/* History */
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;margin-top:26px}
+.note{border-left:4px solid var(--gold);padding:6px 0 6px 22px;font-family:var(--serif);font-size:20px;line-height:1.55}
+
+/* Traits */
+.traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:34px}
+.trait{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:14px;padding:28px}
+.trait:nth-child(2){border-top-color:var(--gold)}
+.trait:nth-child(3){border-top-color:var(--night-2)}
+@media (prefers-color-scheme:dark){.trait:nth-child(3){border-top-color:#5d7bb0}}
+.trait h3{font-size:21px;margin-bottom:8px}
+.trait p{color:var(--muted);font-size:16px}
+
+/* Timeline */
+.steps{list-style:none;margin-top:36px;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.steps li{position:relative;padding:0 0 30px 68px;counter-increment:s}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--night);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px;border:2px solid var(--gold)}
+.steps h3{font-size:20px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:16px}
+
+/* Quote */
+.quote{margin-top:84px;background:radial-gradient(120% 140% at 50% 0%,var(--night-2),var(--night));color:#fff;text-align:center;border-radius:22px;padding:64px 28px;position:relative;overflow:hidden}
+.quote::before,.quote::after{content:"";position:absolute;left:0;right:0;height:24px;background:var(--orn) repeat-x center/48px 24px;opacity:.8}
+.quote::before{top:14px}.quote::after{bottom:14px}
+.quote blockquote{font-family:var(--serif);font-size:clamp(24px,4vw,38px);font-weight:700;line-height:1.4;max-width:22ch;margin:0 auto;color:var(--gold-soft)}
+
+footer{margin-top:84px;background:var(--night);color:#cdd7e6;text-align:center;padding:36px 20px;font-size:15px}
+footer p+p{margin-top:4px;color:var(--gold-soft)}
+
+#up{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:var(--night);color:var(--gold);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
+#up.show{opacity:1;pointer-events:auto}
+
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+
+/* Анимациялар */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes drift{from{background-position-x:0}to{background-position-x:48px}}
+@keyframes halo{0%,100%{box-shadow:0 0 0 24px #d9ac520d,0 0 0 56px #d9ac5208}50%{box-shadow:0 0 0 36px #d9ac5216,0 0 0 80px #d9ac520b}}
+@keyframes sheen{from{background-position:0 0}60%,to{background-position:100% 0}}
+.top>*:not(.stars):not(.moon){position:relative}
+.top .sub,.top .lead,.top .btns{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.top .sub{animation-delay:.25s}.top .lead{animation-delay:.45s}.top .btns{animation-delay:.65s}
+.top h1{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .top h1{color:transparent;background:linear-gradient(100deg,#fff 42%,var(--gold-soft) 50%,#fff 58%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;animation:rise .9s cubic-bezier(.2,.7,.2,1) both,sheen 7s ease-in-out 1.5s infinite}
+}
+.moon{animation:halo 7s ease-in-out infinite}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold-soft);animation:twinkle 3s ease-in-out infinite}
+.top::after,.quote::before,.quote::after{animation:drift 6s linear infinite}
+#bar{position:fixed;top:0;left:0;width:100%;height:3px;z-index:30;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--sky))}
+.trait{transition:transform .3s ease,box-shadow .3s ease}
+.trait:hover{transform:translateY(-6px);box-shadow:0 18px 32px -20px #0e1c3377}
+.fact{transition:background .3s}
+.fact:hover{background:#d9ac5212}
+.js .rv .trait,.js .rv .steps li,.js .rv .fact{opacity:0}
+.js .rv.in .trait,.js .rv.in .steps li,.js .rv.in .fact{opacity:1;animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards}
+.js .rv.in :is(.trait,.steps li,.fact):nth-child(2){animation-delay:.15s}
+.js .rv.in :is(.trait,.steps li,.fact):nth-child(3){animation-delay:.3s}
+.js .rv.in :is(.trait,.steps li,.fact):nth-child(4){animation-delay:.45s}
+.js .steps::before{transform:scaleY(0);transform-origin:top;transition:transform 1.6s ease .2s}
+.js .rv.in .steps::before{transform:none}
+.js .block>h2::after{width:0;transition:width .8s ease .25s}
+.js .block.in>h2::after{width:64px}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  .top{padding:72px 18px 96px}
+  .two{grid-template-columns:1fr;gap:24px}
+  .fact+.fact{border-left:0;border-top:1px solid var(--line)}
+  nav ul{justify-content:flex-start}
+  .block{padding-top:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important}
+  .js .rv .trait,.js .rv .steps li,.js .rv .fact{opacity:1}
+  .js .steps::before{transform:none;transition:none}
+  .js .block>h2::after{width:64px;transition:none}
+  #bar{display:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+
+<header class="top" id="home">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <h1>Алпамыс батыр</h1>
+  <p class="sub">Қазақ халқының батырлық жыры</p>
+  <p class="lead">Ерлік пен адалдық, туған жерге деген сүйіспеншілік және отбасына деген құрмет туралы ұрпақтан ұрпаққа жеткен эпос.</p>
+  <div class="btns">
+    <a class="btn gold" href="#plot">Жыр желісі</a>
+    <a class="btn line" href="#hero">Батыр кім?</a>
+  </div>
+</header>
+
+<nav aria-label="Бөлімдер">
+  <ul>
+    <li><a href="#home">Басты бет</a></li>
+    <li><a href="#history">Тарихы</a></li>
+    <li><a href="#hero">Батыр</a></li>
+    <li><a href="#plot">Желісі</a></li>
+    <li><a href="#meaning">Маңызы</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="facts rv" role="list">
+    <div class="fact" role="listitem"><b>Батырлық эпос</b><span>Халық жырының ең ірі түрі</span></div>
+    <div class="fact" role="listitem"><b>Түркі халықтарының мұрасы</b><span>Түрлі нұсқада айтылып келеді</span></div>
+    <div class="fact" role="listitem"><b>Ауызша дәстүр</b><span>Жыршылар арқылы жеткен</span></div>
+  </div>
+
+  <section class="block rv" id="history">
+    <h2>Жырдың тарихы</h2>
+    <div class="two">
+      <div>
+        <p>«Алпамыс батыр» — қазақ халқының ауыз әдебиетіндегі көне эпостық шығармалардың бірі. Жыр ұрпақтан ұрпаққа ауызша таралып, халықтың рухани мұрасына айналған.</p>
+        <p>Шығармада Алпамыстың басынан өткен қиындықтар, жауларымен күресі және еліне деген сүйіспеншілігі суреттеледі.</p>
+      </div>
+      <p class="note">Жыр — тек батырдың ерлігі емес, бүкіл халықтың рухы мен жады.</p>
+    </div>
+  </section>
+
+  <section class="block rv" id="hero">
+    <h2>Алпамыс батыр кім?</h2>
+    <p class="intro">Алпамыс — күшті, батыл, ақылды және әділ батыр. Ол өз халқын қорғау үшін көптеген қиындықтарды жеңіп, ерлігімен ел есінде қалған.</p>
+    <div class="traits">
+      <article class="trait"><h3>💪 Батырлық</h3><p>Қандай қиындық болса да қорықпай күреседі.</p></article>
+      <article class="trait"><h3>❤️ Адалдық</h3><p>Отбасына және халқына адал болады.</p></article>
+      <article class="trait"><h3>⚖️ Әділдік</h3><p>Әрқашан шындық пен әділдікті қорғайды.</p></article>
+    </div>
+  </section>
+
+  <section class="block rv" id="plot">
+    <h2>Жыр желісі</h2>
+    <p class="intro">Жырдың негізгі оқиғалары қысқаша осындай ретпен өрбиді.</p>
+    <ol class="steps">
+      <li><h3>Батырдың өсуі</h3><p>Алпамыс ерекше күшті, өжет болып өседі және ел арасында даңқы шығады.</p></li>
+      <li><h3>Сынақтар мен жорық</h3><p>Ол ерлікпен сынақтардан өтіп, жаудың еліне аттанады.</p></li>
+      <li><h3>Тұтқындағы жылдар</h3><p>Жау елінде ұзақ уақыт тұтқында болады, бірақ рухы сынбайды.</p></li>
+      <li><h3>Еліне оралу</h3><p>Алпамыс туған жеріне қайтып келіп, әділдікті қалпына келтіреді.</p></li>
+    </ol>
+  </section>
+
+  <section class="block rv" id="meaning">
+    <h2>Жырдың тәрбиелік маңызы</h2>
+    <div class="two">
+      <div>
+        <p>«Алпамыс батыр» жыры жас ұрпақты отансүйгіштікке, батылдыққа, адамгершілікке және үлкенді құрметтеуге тәрбиелейді.</p>
+        <p>Бұл шығарма — қазақ халқының тарихын, мәдениетін және ұлттық рухын танытатын құнды мұра.</p>
+      </div>
+      <p class="note">Өткенді білу — болашаққа берік тірек болу.</p>
+    </div>
+  </section>
+
+  <div class="quote rv">
+    <blockquote>«Елін сүйген ер болар,<br>Ерлік жасаған ел болар!»</blockquote>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Алпамыс батыр | Қазақ халқының рухани мұрасы</p>
+  <p>Қазақ әдебиеті 🇰🇿</p>
+</footer>
+
+<button id="up" type="button" aria-label="Жоғарыға">↑</button>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var rv=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    rv.forEach(function(e){io.observe(e)});
+    var links=document.querySelectorAll('nav a'),map={};
+    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on')});var a=map[e.target.id];if(a){a.classList.add('on');a.scrollIntoView({inline:'center',block:'nearest'})}}})},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)so.observe(s)});
+  }
+  var st=document.querySelector('.stars');
+  for(var i=0;i<30;i++){var d=document.createElement('i');d.style.left=(Math.random()*100)+'%';d.style.top=(Math.random()*85)+'%';d.style.animationDelay=(Math.random()*3).toFixed(2)+'s';d.style.animationDuration=(2+Math.random()*3).toFixed(2)+'s';if(i%3===0){d.style.width=d.style.height='2px'}st.appendChild(d)}
+  var up=document.getElementById('up'),bar=document.getElementById('bar');
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(scrollY/h,1):0)+')';
+    up.classList.toggle('show',scrollY>600);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  up.addEventListener('click',function(){window.scrollTo({top:0})});
+})();
+</script>
+</body>
+</html>
