@@ -42,7 +42,7 @@ a{color:inherit}
 .top .sub{margin:14px auto 0;max-width:34ch;font-family:var(--serif);font-size:clamp(18px,2.6vw,24px);color:var(--gold-soft)}
 .top .lead{margin:28px auto 0;max-width:62ch;color:#cdd7e6;font-size:18px}
 .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.btn{display:inline-block;padding:13px 28px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s,background .2s}
+.btn{display:inline-block;padding:13px 28px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s ease,background .2s ease;will-change:transform}
 .btn.gold{background:var(--gold);color:#1a1405}
 .btn.line{border:2px solid #ffffff55;color:#fff}
 .btn:hover{transform:translateY(-2px)}
@@ -65,10 +65,11 @@ main{max-width:1040px;margin:0 auto;padding:0 20px}
 
 /* Facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:-48px;position:relative;z-index:2;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px -22px #0e1c3366;overflow:hidden}
-.fact{padding:26px 28px}
+.fact{padding:26px 28px;transition:background .3s ease}
 .fact+.fact{border-left:1px solid var(--line)}
 .fact b{display:block;font-family:var(--serif);font-size:20px;color:var(--sky)}
 .fact span{color:var(--muted);font-size:15px}
+.fact:hover{background:#d9ac5212}
 
 /* History */
 .two{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;margin-top:26px}
@@ -76,12 +77,13 @@ main{max-width:1040px;margin:0 auto;padding:0 20px}
 
 /* Traits */
 .traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:34px}
-.trait{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:14px;padding:28px}
+.trait{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:14px;padding:28px;transition:transform .3s ease,box-shadow .3s ease;will-change:transform}
 .trait:nth-child(2){border-top-color:var(--gold)}
 .trait:nth-child(3){border-top-color:var(--night-2)}
 @media (prefers-color-scheme:dark){.trait:nth-child(3){border-top-color:#5d7bb0}}
 .trait h3{font-size:21px;margin-bottom:8px}
 .trait p{color:var(--muted);font-size:16px}
+.trait:hover{transform:translateY(-6px);box-shadow:0 18px 32px -20px #0e1c3377}
 
 /* Timeline */
 .steps{list-style:none;margin-top:36px;position:relative;counter-reset:s}
@@ -101,43 +103,27 @@ main{max-width:1040px;margin:0 auto;padding:0 20px}
 footer{margin-top:84px;background:var(--night);color:#cdd7e6;text-align:center;padding:36px 20px;font-size:15px}
 footer p+p{margin-top:4px;color:var(--gold-soft)}
 
-#up{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:var(--night);color:var(--gold);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
+#up{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:var(--night);color:var(--gold);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .2s ease;will-change:transform,opacity}
 #up.show{opacity:1;pointer-events:auto}
+#up:hover{transform:scale(1.08)}
 
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+/* Оптимизированные анимации */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease-out,transform .5s ease-out;will-change:transform,opacity}
 .js .rv.in{opacity:1;transform:none}
 
-/* Анимациялар */
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
-@keyframes drift{from{background-position-x:0}to{background-position-x:48px}}
-@keyframes halo{0%,100%{box-shadow:0 0 0 24px #d9ac520d,0 0 0 56px #d9ac5208}50%{box-shadow:0 0 0 36px #d9ac5216,0 0 0 80px #d9ac520b}}
-@keyframes sheen{from{background-position:0 0}60%,to{background-position:100% 0}}
+
 .top>*:not(.stars):not(.moon){position:relative}
-.top .sub,.top .lead,.top .btns{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.top .sub{animation-delay:.25s}.top .lead{animation-delay:.45s}.top .btns{animation-delay:.65s}
-.top h1{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .top h1{color:transparent;background:linear-gradient(100deg,#fff 42%,var(--gold-soft) 50%,#fff 58%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;animation:rise .9s cubic-bezier(.2,.7,.2,1) both,sheen 7s ease-in-out 1.5s infinite}
-}
-.moon{animation:halo 7s ease-in-out infinite}
+.top .sub,.top .lead,.top .btns,.top h1{animation:rise .8s cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity}
+.top .sub{animation-delay:.15s}
+.top .lead{animation-delay:.3s}
+.top .btns{animation-delay:.45s}
+
 .stars{position:absolute;inset:0;pointer-events:none}
-.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold-soft);animation:twinkle 3s ease-in-out infinite}
-.top::after,.quote::before,.quote::after{animation:drift 6s linear infinite}
-#bar{position:fixed;top:0;left:0;width:100%;height:3px;z-index:30;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--sky))}
-.trait{transition:transform .3s ease,box-shadow .3s ease}
-.trait:hover{transform:translateY(-6px);box-shadow:0 18px 32px -20px #0e1c3377}
-.fact{transition:background .3s}
-.fact:hover{background:#d9ac5212}
-.js .rv .trait,.js .rv .steps li,.js .rv .fact{opacity:0}
-.js .rv.in .trait,.js .rv.in .steps li,.js .rv.in .fact{opacity:1;animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards}
-.js .rv.in :is(.trait,.steps li,.fact):nth-child(2){animation-delay:.15s}
-.js .rv.in :is(.trait,.steps li,.fact):nth-child(3){animation-delay:.3s}
-.js .rv.in :is(.trait,.steps li,.fact):nth-child(4){animation-delay:.45s}
-.js .steps::before{transform:scaleY(0);transform-origin:top;transition:transform 1.6s ease .2s}
-.js .rv.in .steps::before{transform:none}
-.js .block>h2::after{width:0;transition:width .8s ease .25s}
-.js .block.in>h2::after{width:64px}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold-soft);animation:twinkle 3s ease-in-out infinite;will-change:opacity}
+
+#bar{position:fixed;top:0;left:0;width:100%;height:3px;z-index:30;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--sky));will-change:transform}
 
 @media (max-width:760px){
   body{font-size:16px}
@@ -149,13 +135,9 @@ footer p+p{margin-top:4px;color:var(--gold-soft)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important}
-  .js .rv .trait,.js .rv .steps li,.js .rv .fact{opacity:1}
-  .js .steps::before{transform:none;transition:none}
-  .js .block>h2::after{width:64px;transition:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
   #bar{display:none}
-  .js .rv{opacity:1;transform:none;transition:none}
-  .btn{transition:none}
 }
 </style>
 </head>
@@ -249,26 +231,81 @@ footer p+p{margin-top:4px;color:var(--gold-soft)}
 <script>
 document.documentElement.classList.add('js');
 (function(){
-  var rv=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});}
-  else{
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-    rv.forEach(function(e){io.observe(e)});
-    var links=document.querySelectorAll('nav a'),map={};
-    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
-    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on')});var a=map[e.target.id];if(a){a.classList.add('on');a.scrollIntoView({inline:'center',block:'nearest'})}}})},{rootMargin:'-45% 0px -50% 0px'});
-    Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)so.observe(s)});
+  // Intersection Observer для блоков
+  var rv = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){
+    rv.forEach(function(e){ e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.1});
+    rv.forEach(function(e){ io.observe(e); });
+
+    var links = document.querySelectorAll('nav a'), map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.remove('on'); });
+          var a = map[e.target.id];
+          if(a){
+            a.classList.add('on');
+            a.scrollIntoView({inline:'center', block:'nearest'});
+          }
+        }
+      });
+    }, {rootMargin: '-40% 0px -50% 0px'});
+
+    Object.keys(map).forEach(function(id){
+      var s = document.getElementById(id);
+      if(s) so.observe(s);
+    });
   }
-  var st=document.querySelector('.stars');
-  for(var i=0;i<30;i++){var d=document.createElement('i');d.style.left=(Math.random()*100)+'%';d.style.top=(Math.random()*85)+'%';d.style.animationDelay=(Math.random()*3).toFixed(2)+'s';d.style.animationDuration=(2+Math.random()*3).toFixed(2)+'s';if(i%3===0){d.style.width=d.style.height='2px'}st.appendChild(d)}
-  var up=document.getElementById('up'),bar=document.getElementById('bar');
-  function onScroll(){
-    var h=document.documentElement.scrollHeight-innerHeight;
-    bar.style.transform='scaleX('+(h>0?Math.min(scrollY/h,1):0)+')';
-    up.classList.toggle('show',scrollY>600);
+
+  // Генерация звезд через DocumentFragment для минимизации перерисовок
+  var st = document.querySelector('.stars');
+  var frag = document.createDocumentFragment();
+  for(var i = 0; i < 18; i++){
+    var d = document.createElement('i');
+    d.style.left = (Math.random() * 100) + '%';
+    d.style.top = (Math.random() * 85) + '%';
+    d.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+    d.style.animationDuration = (2.5 + Math.random() * 2.5).toFixed(2) + 's';
+    if(i % 3 === 0) d.style.width = d.style.height = '2px';
+    frag.appendChild(d);
   }
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  up.addEventListener('click',function(){window.scrollTo({top:0})});
+  st.appendChild(frag);
+
+  // Плавная обработка скролла через requestAnimationFrame
+  var up = document.getElementById('up'), bar = document.getElementById('bar');
+  var ticking = false;
+
+  function updateScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var currentY = window.scrollY;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(currentY / h, 1) : 0) + ')';
+    up.classList.toggle('show', currentY > 500);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(updateScroll);
+      ticking = true;
+    }
+  }, {passive: true});
+
+  updateScroll();
+
+  up.addEventListener('click', function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
 })();
 </script>
 </body>
