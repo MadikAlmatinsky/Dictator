@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="Желаяқ туралы қазақ ертегісі, оның достары мен қасиеттері.">
+  <title>Желаяқ — желден жүйрік батыр</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue-dark: #102a43;
+      --blue: #246b8a;
+      --gold: #f2c230;
+      --gold-light: #ffe79a;
+      --red: #b32635;
+      --paper: #fffdf7;
+      --ink: #18324b;
+      --muted: #5d7182;
+      --serif: "Noto Serif", Georgia, serif;
+      --sans: "Manrope", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 75px;
+    }
+
+    body {
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .progress {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+      pointer-events: none;
+    }
+
+    /* Басты бөлім */
+    .hero {
+      position: relative;
+      height: min(900px, 100svh);
+      min-height: 650px;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      background: linear-gradient(180deg, #12689c, #58b7dd 54%, #f7dca0);
+      isolation: isolate;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      width: min(900px, calc(100% - 36px));
+      margin: 0 auto;
+      padding-top: clamp(105px, 18vh, 170px);
+      transform: translateY(var(--hero-shift, 0));
+      will-change: transform;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      animation: fade-up .8s .1s both;
+    }
+
+    .hero-label::before,
+    .hero-label::after {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .hero h1 {
+      color: white;
+      font-family: var(--serif);
+      font-size: clamp(56px, 13vw, 142px);
+      font-weight: 800;
+      letter-spacing: .035em;
+      line-height: 1;
+      text-shadow: 0 6px 24px #09274477;
+      animation: title-in 1.1s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .hero-subtitle {
+      margin-top: 20px;
+      color: #fff5d5;
+      font-family: var(--serif);
+      font-size: clamp(18px, 3vw, 28px);
+      text-shadow: 0 3px 12px #09274477;
+      animation: fade-up .8s .25s both;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 16px auto 0;
+      color: #f4fbff;
+      font-size: clamp(14px, 2vw, 17px);
+      text-shadow: 0 2px 8px #09274477;
+      animation: fade-up .8s .4s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      animation: fade-up .8s .55s both;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button:active {
+      transform: scale(.97);
+    }
+
+    .button-gold {
+      color: var(--blue-dark);
+      background: var(--gold);
+      box-shadow: 0 10px 28px #102a4340;
+    }
+
+    .button-gold:hover {
+      background: var(--gold-light);
+    }
+
+    .button-light {
+      border-color: #ffffff90;
+      color: white;
+      background: #ffffff15;
+      backdrop-filter: blur(5px);
+    }
+
+    .button-light:hover {
+      background: #ffffff2b;
+    }
+
+    /* Күн, бұлт және құстар */
+    .sun {
+      position: absolute;
+      z-index: -2;
+      top: 9%;
+      right: 9%;
+      width: clamp(68px, 10vw, 110px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 50px 18px #f2c23088;
+      animation: sun-glow 5s ease-in-out infinite;
+    }
+
+    .sun::before {
+      position: absolute;
+      inset: -55%;
+      border-radius: 50%;
+      background: repeating-conic-gradient(#f2c23066 0deg 4deg, transparent 4deg 15deg);
+      content: "";
+      mask-image: radial-gradient(circle, transparent 38%, #000 39%, #000 48%, transparent 68%);
+      animation: spin 45s linear infinite;
+    }
+
+    .cloud {
+      position: absolute;
+      top: var(--top, 16%);
+      left: -220px;
+      width: var(--width, 125px);
+      height: 27px;
+      border-radius: 999px;
+      background: white;
+      opacity: .88;
+      animation: cloud-drift var(--speed, 60s) linear var(--delay, 0s) infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      position: absolute;
+      bottom: 8px;
+      border-radius: 50%;
+      background: inherit;
+      content: "";
+    }
+
+    .cloud::before {
+      left: 20px;
+      width: 46px;
+      height: 46px;
+    }
+
+    .cloud::after {
+      left: 58px;
+      width: 34px;
+      height: 34px;
+    }
+
+    .bird {
+      position: absolute;
+      top: 22%;
+      left: -100px;
+      font-size: 32px;
+      animation: bird-flight 24s linear 3s infinite;
+    }
+
+    .sparkles {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #fff8ce;
+      box-shadow: 0 0 10px #fff8ce;
+      animation: twinkle var(--duration, 3s) ease-in-out var(--delay, 0s) infinite;
+    }
+
+    /* Тау мен дала */
+    .mountains {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 11%;
+      left: 0;
+      width: 100%;
+      height: 42%;
+      will-change: transform;
+    }
+
+    .plain {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 20%;
+      background: linear-gradient(#6bb85f, #28794d);
+    }
+
+    .plain::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 22px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22' fill='none' stroke='%23f2c230' stroke-width='2'%3E%3Cpath d='M22 21C22 9 6 6 6 14c0 6 8 6 8 1M22 21c0-12 16-15 16-7 0 6-8 6-8 1'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      content: "";
+      animation: border-drift 12s linear infinite;
+    }
+
+    .yurt {
+      position: absolute;
+      z-index: 1;
+      bottom: 11%;
+      left: max(5%, calc((100vw - 1120px) / 2));
+      width: clamp(100px, 16vw, 175px);
+      transform-origin: bottom center;
+      animation: yurt-sway 5s ease-in-out infinite;
+    }
+
+    .yurt svg {
+      display: block;
+      width: 100%;
+      filter: drop-shadow(0 9px 10px #18324b33);
+    }
+
+    .smoke {
+      position: absolute;
+      top: -16px;
+      left: 47%;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0;
+      animation: smoke 4s ease-out infinite;
+    }
+
+    .smoke:nth-child(2) { animation-delay: 1.3s; }
+    .smoke:nth-child(3) { animation-delay: 2.6s; }
+
+    .runner {
+      position: absolute;
+      z-index: 2;
+      bottom: 10%;
+      left: -100px;
+      font-size: clamp(38px, 6vw, 64px);
+      filter: drop-shadow(0 7px 5px #18324b55);
+      animation: run-across 11s linear infinite;
+    }
+
+    .runner span {
+      display: block;
+      animation: run-bounce .34s ease-in-out infinite alternate;
+    }
+
+    .wind {
+      position: absolute;
+      top: -8px;
+      left: -25px;
+      color: #fff9d8;
+      font-size: .45em;
+      animation: wind-flash .7s ease-in-out infinite alternate;
+    }
+
+    /* Жоғарғы мәзір */
+    .site-nav {
+      position: sticky;
+      z-index: 30;
+      top: 0;
+      border-bottom: 1px solid #ffffff18;
+      background: #102a43ed;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-list {
+      display: flex;
+      width: min(100%, 1050px);
+      justify-content: center;
+      gap: 6px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      overflow-x: auto;
+      list-style: none;
+      scrollbar-width: none;
+    }
+
+    .nav-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 8px 15px;
+      border-radius: 999px;
+      color: #e0edf4;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      color: var(--blue-dark);
+      background: var(--gold);
+    }
+
+    /* Жүгіретін мәтін */
+    .marquee {
+      overflow: hidden;
+      padding: 10px 0;
+      color: var(--blue-dark);
+      background: var(--gold);
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee span {
+      padding-right: 30px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .marquee-dark {
+      color: var(--gold-light);
+      background: var(--blue-dark);
+    }
+
+    /* Негізгі бөлімдер */
+    main {
+      width: min(100% - 36px, 1040px);
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 82px 0;
+      scroll-margin-top: 78px;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: clamp(29px, 5vw, 43px);
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    h2::after {
+      display: block;
+      width: 0;
+      height: 4px;
+      margin: 13px auto 0;
+      border-radius: 9px;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+      content: "";
+      transition: width .8s ease .2s;
+    }
+
+    .is-visible h2::after {
+      width: 70px;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .quote {
+      max-width: 700px;
+      margin: 28px auto 0;
+      padding: 22px;
+      border: 1px solid #f2c23066;
+      border-radius: 18px;
+      color: var(--red);
+      background: #fff9e9;
+      font-family: var(--serif);
+      font-size: clamp(18px, 3vw, 25px);
+      font-style: italic;
+      text-align: center;
+      box-shadow: 0 15px 35px -28px #102a4380;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .quote:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -25px #102a4380;
+    }
+
+    .wheel {
+      position: absolute;
+      top: 35px;
+      right: -100px;
+      width: 280px;
+      opacity: .07;
+      animation: spin 70s linear infinite;
+      pointer-events: none;
+    }
+
+    /* Скролл reveal анимациялары */
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .scale-in {
+      opacity: 0;
+      transition: opacity .75s ease, transform .75s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .reveal {
+      transform: translateY(28px);
+    }
+
+    .reveal-left {
+      transform: translateX(-36px);
+    }
+
+    .reveal-right {
+      transform: translateX(36px);
+    }
+
+    .scale-in {
+      transform: scale(.94);
+    }
+
+    .reveal.is-visible,
+    .reveal-left.is-visible,
+    .reveal-right.is-visible,
+    .scale-in.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Кейіпкер карточкалары */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .character-card {
+      min-height: 230px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 230px;
+      transform-style: preserve-3d;
+      transition: transform .75s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .character-card:hover .card-inner,
+    .character-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      border: 1px solid #f2c23099;
+      border-radius: 8px 26px;
+      text-align: center;
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+      color: var(--gold-light);
+      background: var(--blue-dark);
+    }
+
+    .emoji {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 44px;
+      animation: float 2.6s ease-in-out infinite;
+    }
+
+    .card-front strong {
+      font-family: var(--serif);
+      font-size: 19px;
+    }
+
+    .card-hint {
+      margin-top: 10px;
+      color: #d9e5ec;
+      font-size: 10px;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      color: white;
+      background: linear-gradient(145deg, #bd3440, #862532);
+      font-size: 13px;
+    }
+
+    /* Қараңғы бөлімдер */
+    .dark-section {
+      overflow: hidden;
+      color: #f6f8f8;
+      background:
+        radial-gradient(ellipse at 50% 0, #1f4b68 0, transparent 65%),
+        var(--blue-dark);
+    }
+
+    .dark-section h2 {
+      color: var(--gold);
+    }
+
+    .dark-section .kicker {
+      color: #9bd3dc;
+    }
+
+    .dark-section .section-copy {
+      color: #cfdae0;
+    }
+
+    .skills {
+      display: grid;
+      max-width: 720px;
+      gap: 18px;
+      margin: 28px auto 0;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+      color: #eff7f8;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .skill-bar {
+      height: 11px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #ffffff20;
+    }
+
+    .skill-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), #fff0ae);
+      transition: width 1.5s ease .3s;
+    }
+
+    .is-visible .skill-fill {
+      width: var(--value);
+    }
+
+    .small-note {
+      margin-top: 17px;
+      color: #bdcbd2;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* Оқиғалар тізбегі */
+    .timeline {
+      position: relative;
+      display: grid;
+      max-width: 760px;
+      gap: 20px;
+      margin: 32px auto 0;
+      padding-left: 42px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 13px;
+      width: 3px;
+      transform: scaleY(0);
+      transform-origin: top;
+      border-radius: 8px;
+      background: linear-gradient(var(--gold), var(--red));
+      content: "";
+      transition: transform 1.2s ease .2s;
+    }
+
+    .timeline.is-visible::before {
+      transform: scaleY(1);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 17px 20px;
+      border: 1px solid #e7e3d7;
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 12px 30px -28px #102a4380;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 18px 34px -26px #102a4380;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 21px;
+      left: -39px;
+      color: var(--gold);
+      content: "◆";
+      font-size: 18px;
+    }
+
+    .timeline-item strong {
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .timeline-item p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Сандар */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      padding: 22px 14px;
+      border: 1px solid #f2c23059;
+      border-radius: 16px;
+      background: #ffffff08;
+      text-align: center;
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .stat-number {
+      display: block;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      display: block;
+      margin-top: 7px;
+      color: #d5e0e5;
+      font-size: 12px;
+    }
+
+    .finale {
+      position: relative;
+      margin-top: 45px;
+      padding: 58px 24px;
+      overflow: hidden;
+      border-radius: 24px;
+      color: white;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0, #286080, var(--blue-dark));
+      box-shadow: 0 20px 55px -30px #0008;
+    }
+
+    .finale-mark {
+      color: var(--gold);
+      font-size: 44px;
+    }
+
+    .finale blockquote {
+      max-width: 700px;
+      margin: 10px auto 0;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding: 35px 20px;
+      color: #e6edf0;
+      background: var(--red);
+      text-align: center;
+    }
+
+    footer p + p {
+      margin-top: 4px;
+      color: var(--gold-light);
+      font-size: 12px;
+    }
+
+    /* Күй батырмасы */
+    .kui-button {
+      position: fixed;
+      z-index: 50;
+      right: 20px;
+      bottom: 20px;
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 9px;
+      padding: 0 17px;
+      border: 1px solid #f2c23099;
+      border-radius: 999px;
+      color: var(--gold-light);
+      background: var(--blue-dark);
+      box-shadow: 0 8px 24px #102a4355;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .kui-button:hover {
+      transform: translateY(-3px);
+      background: var(--blue);
+    }
+
+    .kui-icon {
+      font-size: 19px;
+    }
+
+    .sound-bars {
+      display: flex;
+      height: 18px;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .sound-bars i {
+      width: 3px;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--gold);
+    }
+
+    .kui-button.playing .sound-bars i {
+      animation: sound-wave .55s ease-in-out infinite alternate;
+    }
+
+    .kui-button.playing .sound-bars i:nth-child(2) { animation-delay: .15s; }
+    .kui-button.playing .sound-bars i:nth-child(3) { animation-delay: .3s; }
+    .kui-button.playing .sound-bars i:nth-child(4) { animation-delay: .1s; }
+
+    .back-top {
+      position: fixed;
+      z-index: 40;
+      right: 24px;
+      bottom: 82px;
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border: 1px solid #f2c23099;
+      border-radius: 50%;
+      color: var(--gold-light);
+      background: var(--blue-dark);
+      font-size: 19px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @keyframes title-in {
+      from { opacity: 0; transform: translateY(28px) scale(.92); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes sun-glow {
+      0%, 100% { box-shadow: 0 0 42px 14px #f2c23077; }
+      50% { box-shadow: 0 0 68px 25px #f2c23099; }
+    }
+
+    @keyframes cloud-drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(100vw + 250px)); }
+    }
+
+    @keyframes bird-flight {
+      from { transform: translateX(0) translateY(0); }
+      35% { transform: translateX(40vw) translateY(-16px); }
+      70% { transform: translateX(75vw) translateY(8px); }
+      to { transform: translateX(calc(100vw + 150px)) translateY(-8px); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: .25; transform: scale(.7); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    @keyframes border-drift {
+      to { background-position-x: 220px; }
+    }
+
+    @keyframes yurt-sway {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+
+    @keyframes smoke {
+      0% { opacity: .65; transform: translate(0, 0) scale(.5); }
+      100% { opacity: 0; transform: translate(20px, -80px) scale(2.4); }
+    }
+
+    @keyframes run-across {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(100vw + 130px)); }
+    }
+
+    @keyframes run-bounce {
+      from { transform: translateY(0) rotate(-3deg); }
+      to { transform: translateY(-13px) rotate(4deg); }
+    }
+
+    @keyframes wind-flash {
+      from { transform: translateX(0); opacity: .2; }
+      to { transform: translateX(-17px); opacity: 1; }
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-8px) rotate(3deg); }
+    }
+
+    @keyframes sound-wave {
+      from { height: 4px; }
+      to { height: 17px; }
+    }
+
+    @media (max-width: 820px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 620px;
+        height: 90svh;
+      }
+
+      .hero-content { padding-top: 112px; }
+      .sun { top: 6%; right: 8%; }
+      .mountains { bottom: 11%; height: 34%; }
+
+      .site-nav .nav-list { justify-content: flex-start; }
+
+      main { width: min(100% - 30px, 560px); }
+      .section { padding: 65px 0; }
+      .cards { gap: 12px; }
+
+      .character-card,
+      .card-inner {
+        min-height: 205px;
+      }
+
+      .timeline { padding-left: 36px; }
+      .timeline::before { left: 11px; }
+      .timeline-item::before { left: -34px; }
+
+      .finale {
+        margin-top: 35px;
+        padding: 50px 18px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-actions {
+        width: min(100%, 280px);
+        flex-direction: column;
+        align-items: stretch;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .cards { grid-template-columns: 1fr; }
+
+      .character-card,
+      .card-inner {
+        min-height: 190px;
+      }
+
+      .stats { gap: 10px; }
+      .stat { padding: 18px 10px; }
+      .stat-number { font-size: 33px; }
+      .kui-button { right: 14px; bottom: 14px; }
+      .back-top { right: 14px; bottom: 72px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .scale-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      h2::after { width: 70px; }
+      .skill-fill { width: var(--value); }
+      .timeline::before { transform: scaleY(1); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="hero" id="home">
+    <div class="sun" id="sun" aria-hidden="true"></div>
+
+    <div class="cloud" style="--top:14%;--width:125px;--speed:58s;--delay:-12s"></div>
+    <div class="cloud" style="--top:28%;--width:95px;--speed:72s;--delay:-41s"></div>
+    <div class="cloud" style="--top:8%;--width:155px;--speed:90s;--delay:-70s"></div>
+    <div class="bird" aria-hidden="true">🕊️</div>
+    <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
+    <svg class="mountains" id="mountains" viewBox="0 0 1440 350" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#2d78a1" d="M0 350V210l145-142 130 118L445 28l178 200 160-115 193 137 175-191 153 165 136-84v210Z"/>
+      <path fill="#1d5279" d="M0 350V240l170-92 150 92 172-120 155 131 161-80 194 105 153-104 150 74 135-68v172Z"/>
+    </svg>
+
+    <div class="plain" aria-hidden="true"></div>
+
+    <div class="yurt" aria-hidden="true">
+      <i class="smoke"></i>
+      <i class="smoke"></i>
+      <i class="smoke"></i>
+      <svg viewBox="0 0 180 130">
+        <path d="M12 62Q90-10 168 62Z" fill="#fff9e9"/>
+        <rect x="12" y="62" width="156" height="55" fill="#fff9e9"/>
+        <path d="M12 70h156v10H12z" fill="#b32635"/>
+        <path d="M76 117V87q14-17 28 0v30Z" fill="#163b5c"/>
+        <circle cx="90" cy="26" r="8" fill="#f2c230"/>
+        <path d="M20 62Q90 5 160 62" fill="none" stroke="#e2ad2f" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <div class="runner" aria-hidden="true">
+      <span>🏃</span>
+      <i class="wind">〰</i>
+    </div>
+
+    <div class="hero-content" id="heroContent">
+      <p class="hero-label">Қазақ ертегісінің кейіпкері</p>
+      <h1>ЖЕЛАЯҚ</h1>
+      <p class="hero-subtitle">Желден де жүйрік батыр</p>
+      <p class="hero-description">
+        Жүгіргенде алдына қара салмайтын ертегінің жүйрік батыры.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-gold" href="#about">Ертегіні тану ↓</a>
+        <a class="button button-light" href="#characters">Кейіпкерлер</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Бөлімдер">
+    <ul class="nav-list">
+      <li><a class="active" href="#home">Басты бет</a></li>
+      <li><a href="#about">Желаяқ кім?</a></li>
+      <li><a href="#characters">Кейіпкерлер</a></li>
+      <li><a href="#skills">Қасиеттері</a></li>
+      <li><a href="#story">Жолы</a></li>
+    </ul>
+  </nav>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>✦ Желдей жүйрік ✦ Алдына қара салмайтын Желаяқ ✦ Қазақ ертегісі ✦</span>
+      <span>✦ Желдей жүйрік ✦ Алдына қара салмайтын Желаяқ ✦ Қазақ ертегісі ✦</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="section reveal" id="about">
+      <div class="section-heading">
+        <span class="kicker">Ертегінің жүйрік батыры</span>
+        <h2>Желаяқ кім?</h2>
+      </div>
+
+      <p class="section-copy">
+        Желаяқ — қазақ ертегілеріндегі жүгіргенде алдына қара салмайтын жүйрік батыр.
+        «Жел аяқ» деген аты оның желдей ұшқан шапшаңдығын білдіреді. Ертегілерде ол
+        Ер Төстік, Саққұлақ, Көлтаусар және Таусоғар сияқты ерекше қабілеті бар
+        кейіпкерлермен бірге кездеседі.
+      </p>
+
+      <blockquote class="quote scale-in">
+        «Жүгіргенде алдына қара салмайтын жүйрік!»
+      </blockquote>
+    </section>
+
+    <section class="section" id="characters">
+      <div class="section-heading reveal">
+        <span class="kicker">Ертегідегі достар</span>
+        <h2>Ерекше кейіпкерлер</h2>
+      </div>
+
+      <p class="section-copy reveal">
+        Картаны басыңыз немесе үстіне апарыңыз — кейіпкердің қасиеті ашылады.
+      </p>
+
+      <div class="cards">
+        <article class="character-card reveal" tabindex="0" role="button">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="emoji">🏃</span>
+              <strong>Желаяқ</strong>
+              <span class="card-hint">Картаны аударыңыз</span>
+            </div>
+            <div class="card-back">
+              Жүгіргенде алдына қара салмайтын жүйрік батыр. Желден озып, мәреге бірінші жетеді.
+            </div>
+          </div>
+        </article>
+
+        <article class="character-card reveal" tabindex="0" role="button">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="emoji">👂</span>
+              <strong>Саққұлақ</strong>
+              <span class="card-hint">Картаны аударыңыз</span>
+            </div>
+            <div class="card-back">
+              Алыстағы дыбысты да еститін, құлағы өте сақ ертегі кейіпкері.
+            </div>
+          </div>
+        </article>
+
+        <article class="character-card reveal" tabindex="0" role="button">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="emoji">💧</span>
+              <strong>Көлтаусар</strong>
+              <span class="card-hint">Картаны аударыңыз</span>
+            </div>
+            <div class="card-back">
+              Көлдің суын іше алатын, ертегідегі ерекше күш иесі.
+            </div>
+          </div>
+        </article>
+
+        <article class="character-card reveal" tabindex="0" role="button">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="emoji">⛰️</span>
+              <strong>Таусоғар</strong>
+              <span class="card-hint">Картаны аударыңыз</span>
+            </div>
+            <div class="card-back">
+              Тауды қопарып, алдынан шыққан кедергіні еңсеретін алып күш иесі.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-section" id="skills">
+      <div class="section reveal">
+        <div class="section-heading">
+          <span class="kicker">Батырдың мықты тұстары</span>
+          <h2>Желаяқтың қасиеттері</h2>
+        </div>
+
+        <p class="section-copy">
+          Желаяқтың шапшаңдығы ғана емес, төзімі мен достарына адалдығы да ерекше.
+        </p>
+
+        <div class="skills reveal">
+          <div>
+            <div class="skill-top"><span>Жылдамдық</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--value:95%"></div></div>
+          </div>
+          <div>
+            <div class="skill-top"><span>Төзімділік</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--value:88%"></div></div>
+          </div>
+          <div>
+            <div class="skill-top"><span>Ептілік</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--value:80%"></div></div>
+          </div>
+          <div>
+            <div class="skill-top"><span>Достыққа адалдық</span><span>100%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--value:100%"></div></div>
+          </div>
+        </div>
+
+        <p class="small-note">Көрсеткіштер — әсем көрініс үшін берілген шартты бейнелеу.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="story">
+      <div class="section-heading">
+        <span class="kicker">Ертегі жолы</span>
+        <h2>Желаяқ туралы қысқаша</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal-left">
+          <strong>Ертегіде</strong>
+          <p>Желаяқ — жүйріктігімен аты шыққан батыр. Оның шапшаңдығы достарына қиын сәтте көмектеседі.</p>
+        </article>
+        <article class="timeline-item reveal-right">
+          <strong>Халық аузында</strong>
+          <p>Қазақ ертегілері ұрпақтан ұрпаққа айтылып, жақсылық пен батырлықты дәріптеген.</p>
+        </article>
+        <article class="timeline-item reveal-left">
+          <strong>Ерекше достар</strong>
+          <p>Желаяқ басқа да ғажайып қабілетті кейіпкерлермен бірге түрлі сынақтан өтеді.</p>
+        </article>
+        <article class="timeline-item reveal-right">
+          <strong>Бүгінгі күнде</strong>
+          <p>Желаяқ батылдықты, жылдамдықты және досқа көмектесуді еске салады.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <div class="section">
+        <div class="section-heading reveal">
+          <span class="kicker">Батыр жайлы қызық</span>
+          <h2>Сандармен</h2>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <span class="stat-number" data-count="4">0</span>
+            <span class="stat-label">ертегі кейіпкері</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-count="100">0</span>
+            <span class="stat-label">% бейнелі жылдамдық</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-count="1">0</span>
+            <span class="stat-label">желден озған батыр</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">ертегідегі қиял</span>
+          </div>
+        </div>
+
+        <div class="finale scale-in">
+          <span class="finale-mark" aria-hidden="true">✦</span>
+          <blockquote>
+            Желдей жүйрік, жүрегі батыр —<br>
+            ертегінің аты аңызға айналған қаһарманы!
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="marquee marquee-dark" aria-hidden="true">
+    <div class="marquee-track">
+      <span>✦ Желаяқ пен достары ✦ Қазақ ертегісінің ғажайып әлемі ✦</span>
+      <span>✦ Желаяқ пен достары ✦ Қазақ ертегісінің ғажайып әлемі ✦</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>Желаяқ · Қазақ ертегісінің жүйрік батыры</p>
+    <p>Қазақ халық ертегілеріне арналған шағын бет · 2026</p>
+  </footer>
+
+  <button class="back-top" id="backTop" type="button" aria-label="Беттің басына қайту">↑</button>
+
+  <audio id="kuiAudio" src="./kui.mp3" loop preload="none"></audio>
+
+  <button
+    class="kui-button"
+    id="kuiButton"
+    type="button"
+    aria-label="Күй қосу"
+    aria-pressed="false"
+  >
+    <span aria-hidden="true">♫</span>
+    <span id="kuiLabel">Күй</span>
+    <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealItems = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right, .scale-in"
+      );
+
+      // Бөлім экранға кіргенде анимациямен көрінеді.
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -25px 0px" });
+
+        revealItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(index % 4) * 65}ms`;
+          revealObserver.observe(item);
+        });
+      }
+
+      // Аспандағы жұлдыздардың орнын кездейсоқ қою.
+      const sparkleLayer = document.getElementById("sparkles");
+
+      if (sparkleLayer && !reduceMotion) {
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < 28; i += 1) {
+          const sparkle = document.createElement("span");
+          sparkle.className = "sparkle";
+          sparkle.style.left = `${Math.random() * 100}%`;
+          sparkle.style.top = `${Math.random() * 80}%`;
+          sparkle.style.setProperty("--delay", `${Math.random() * 4}s`);
+          sparkle.style.setProperty("--duration", `${2 + Math.random() * 3}s`);
+          fragment.appendChild(sparkle);
+        }
+
+        sparkleLayer.appendChild(fragment);
+      }
+
+      // Қаралып тұрған бөлімді мәзірде белгілеу.
+      const navLinks = [...document.querySelectorAll(".nav-list a")];
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${entry.target.id}`
+              );
+            });
+          });
+        }, { rootMargin: "-35% 0px -55% 0px" });
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      // Кейіпкер карточкаларын басып аудару.
+      document.querySelectorAll(".character-card").forEach((card) => {
+        const flipCard = () => card.classList.toggle("flipped");
+
+        card.addEventListener("click", flipCard);
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            flipCard();
+          }
+        });
+      });
+
+      // Скролл индикаторы, параллакс және жоғарыға батырма.
+      const progress = document.getElementById("progress");
+      const backTop = document.getElementById("backTop");
+      const heroContent = document.getElementById("heroContent");
+      const mountains = document.getElementById("mountains");
+      const sun = document.getElementById("sun");
+      let scrollQueued = false;
+
+      function updateScroll() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+        progress.style.transform = `scaleX(${Math.min(amount, 1)})`;
+        backTop.classList.toggle("visible", window.scrollY > 500);
+
+        if (!reduceMotion && window.scrollY < 700) {
+          heroContent.style.setProperty("--hero-shift", `${window.scrollY * 0.12}px`);
+          mountains.style.transform = `translateY(${window.scrollY * 0.08}px)`;
+          sun.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+        }
+
+        scrollQueued = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (!scrollQueued) {
+          requestAnimationFrame(updateScroll);
+          scrollQueued = true;
+        }
+      }, { passive: true });
+
+      updateScroll();
+
+      backTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
+      });
+
+      // Сандарды көрінген кезде санау.
+      const counters = document.querySelectorAll("[data-count]");
+
+      if ("IntersectionObserver" in window) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const element = entry.target;
+            const target = Number(element.dataset.count);
+            const start = performance.now();
+            const duration = 1100;
+
+            function countUp(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              element.textContent = Math.round(target * eased).toLocaleString("kk-KZ");
+
+              if (progress < 1) requestAnimationFrame(countUp);
+            }
+
+            requestAnimationFrame(countUp);
+            observer.unobserve(element);
+          });
+        }, { threshold: 0.6 });
+
+        counters.forEach((counter) => counterObserver.observe(counter));
+      }
+
+      // Күй батырмасы.
+      const kuiAudio = document.getElementById("kuiAudio");
+      const kuiButton = document.getElementById("kuiButton");
+      const kuiLabel = document.getElementById("kuiLabel");
+
+      kuiButton.addEventListener("click", async () => {
+        if (kuiAudio.paused) {
+          try {
+            await kuiAudio.play();
+            kuiButton.classList.add("playing");
+            kuiButton.setAttribute("aria-pressed", "true");
+            kuiButton.setAttribute("aria-label", "Күйді тоқтату");
+            kuiLabel.textContent = "Күй ойнап тұр";
+          } catch (error) {
+            kuiLabel.textContent = "kui.mp3 файлын тексер";
+            console.error("kui.mp3 файлы HTML файлымен бір папкада болуы керек.", error);
+          }
+        } else {
+          kuiAudio.pause();
+          kuiButton.classList.remove("playing");
+          kuiButton.setAttribute("aria-pressed", "false");
+          kuiButton.setAttribute("aria-label", "Күй қосу");
+          kuiLabel.textContent = "Күй";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
