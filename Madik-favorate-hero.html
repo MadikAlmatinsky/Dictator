@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Желаяқ — ертегінің жүйрік батыры</title>
+<style>
+:root{--k:#0a3d62;--a:#f2c230;--c:#fff8e1;--r:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--c);color:var(--k);font-family:Georgia,"Times New Roman",serif;line-height:1.65;overflow-x:hidden}
+.o{height:34px;background-repeat:repeat-x;animation:ag 9s linear infinite}
+.o1{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='34'><g fill='none' stroke='%23f2c230' stroke-width='2.4' stroke-linecap='round'><path d='M30 30C30 12 8 6 8 18C8 26 19 26 19 19'/><path d='M30 30C30 12 52 6 52 18C52 26 41 26 41 19'/></g></svg>")}
+.o2{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='34'><g fill='none' stroke='%23b3261e' stroke-width='2.4' stroke-linecap='round'><path d='M30 30C30 12 8 6 8 18C8 26 19 26 19 19'/><path d='M30 30C30 12 52 6 52 18C52 26 41 26 41 19'/></g></svg>");animation-direction:reverse}
+@keyframes ag{to{background-position:240px 0}}
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:linear-gradient(#0b5ea8,#5bb8f0 55%,#fde9a8);text-align:center;color:#fff}
+.sun{position:absolute;right:9%;top:9%;width:100px;height:100px;border-radius:50%;background:var(--a);box-shadow:0 0 50px 18px rgba(242,194,48,.65)}
+.sun::before{content:"";position:absolute;inset:-70px;border-radius:50%;background:repeating-conic-gradient(rgba(242,194,48,.6) 0 5deg,transparent 5deg 15deg);-webkit-mask-image:radial-gradient(circle,#000 35%,transparent 70%);mask-image:radial-gradient(circle,#000 35%,transparent 70%);animation:ay 40s linear infinite}
+@keyframes ay{to{transform:rotate(360deg)}}
+.cl{position:absolute;height:32px;background:#fff;border-radius:30px;opacity:.85;animation:bu linear infinite}
+.cl::before,.cl::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cl::before{width:44px;height:44px;left:14px;top:-22px}.cl::after{width:30px;height:30px;left:50px;top:-14px}
+@keyframes bu{from{transform:translateX(-200px)}to{transform:translateX(110vw)}}
+.mt{position:absolute;left:0;bottom:17%;width:100%;height:34%}
+.dala{position:absolute;left:0;right:0;bottom:0;height:19%;background:linear-gradient(#5aa65a,#2f7d4f)}
+.yu{position:absolute;left:9%;bottom:15%;width:150px}
+.dm{position:absolute;left:62px;top:-10px;width:16px;height:16px;border-radius:50%;background:#fff;opacity:0;animation:tu 4s ease-out infinite}
+@keyframes tu{0%{transform:translate(0,0) scale(.4);opacity:.8}100%{transform:translate(30px,-90px) scale(2.4);opacity:0}}
+.at,.qu{position:absolute;left:0;animation:zhu 11s linear infinite}
+.at{bottom:12%;font-size:3.4rem}.qu{top:24%;font-size:2.3rem;animation-duration:20s;animation-delay:-4s}
+@keyframes zhu{from{transform:translateX(-120px)}to{transform:translateX(110vw)}}
+.ob{display:block;animation:sek .45s ease-in-out infinite alternate}
+@keyframes sek{to{transform:translateY(-14px) rotate(-6deg)}}
+.qi{display:block;transform:scaleX(-1);animation:tol 3s ease-in-out infinite alternate}
+@keyframes tol{to{transform:scaleX(-1) translateY(-50px) rotate(10deg)}}
+.tit{position:relative;z-index:2;padding-top:17vh}
+h1{margin:0;font-size:clamp(3rem,12vw,7rem);letter-spacing:.08em;background:linear-gradient(90deg,#fff,var(--a),#fff,var(--a));background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:jal 5s linear infinite,kir 1.6s ease both;filter:drop-shadow(0 3px 6px rgba(0,0,0,.4))}
+@keyframes jal{to{background-position:300% 0}}
+@keyframes kir{from{opacity:0;transform:scale(.7) translateY(40px)}to{opacity:1;transform:none}}
+#tip{font-size:clamp(1.1rem,3.5vw,1.6rem);min-height:2em;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+#tip::after{content:"|";animation:jan .7s steps(1) infinite}
+@keyframes jan{50%{opacity:0}}
+.tem{display:inline-block;margin-top:14px;color:#fff;text-decoration:none;border:2px solid var(--a);padding:10px 26px;border-radius:30px;background:rgba(10,61,98,.5);animation:sek2 1.6s ease-in-out infinite}
+@keyframes sek2{50%{transform:translateY(8px)}}
+.sec{max-width:1000px;margin:0 auto;padding:70px 20px;position:relative}
+.cr{position:relative;overflow:hidden}
+.nl{background:var(--k);color:var(--c)}
+h2{text-align:center;color:var(--r);font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 30px}
+.nl h2{color:var(--a)}
+h2::after{content:"";display:block;height:3px;width:0;margin:10px auto 0;background:var(--a);transition:width 1.4s .4s}
+.koru h2::after{width:140px}
+.shk{position:absolute;right:-90px;top:20px;width:340px;opacity:.09;animation:ay 60s linear infinite}
+.ai{opacity:0;transform:translateY(40px);transition:opacity 1s var(--d,0s),transform 1s var(--d,0s)}
+.ai.l{transform:translateX(-70px)}.ai.r{transform:translateX(70px)}
+.ai.koru{opacity:1;transform:none}
+.mq{overflow:hidden;background:var(--r);color:var(--a);white-space:nowrap;padding:10px 0}
+.mq span{display:inline-block;animation:mq 28s linear infinite;letter-spacing:.06em}
+@keyframes mq{to{transform:translateX(-50%)}}
+blockquote{margin:30px auto 0;max-width:620px;text-align:center;font-size:1.4rem;font-style:italic;color:var(--r);animation:tug 3s ease-in-out infinite}
+@keyframes tug{50%{transform:scale(1.04)}}
+.tor{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.kt{perspective:900px;height:240px;cursor:pointer}
+.ic{position:relative;width:100%;height:100%;transition:transform .8s;transform-style:preserve-3d}
+.kt:hover .ic,.kt.on .ic{transform:rotateY(180deg)}
+.fr,.bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--a);border-radius:6px 30px 6px 30px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.fr{background:var(--k);color:var(--a);font-size:1.4rem}.fr b{font-size:3.2rem;animation:sek2 2s ease-in-out infinite}
+.bk{background:var(--r);color:#fff;transform:rotateY(180deg);font-size:.98rem}
+.br{margin:16px 0}.br span{display:block;margin-bottom:4px}
+.br i{display:block;height:14px;border-radius:8px;background:rgba(255,255,255,.15);overflow:hidden}
+.br i::after{content:"";display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),#fff);transition:width 2.2s .3s}
+.koru .br i::after{width:var(--w)}
+.nt{font-size:.85rem;opacity:.7;text-align:center}
+.tl{position:relative;max-width:700px;margin:0 auto;padding-left:38px}
+.tl::before{content:"";position:absolute;left:10px;top:0;width:3px;height:0;background:var(--r);transition:height 3s .3s}
+.tl.koru::before{height:100%}
+.tl div{position:relative;margin-bottom:26px}
+.tl div::before{content:"◆";position:absolute;left:-36px;top:0;color:var(--a);text-shadow:0 0 0 var(--r);font-size:1.3rem;animation:tug 2s ease-in-out infinite}
+.tl b{color:var(--r)}
+.san{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;text-align:center}
+.san div{padding:22px;border-top:3px solid var(--a);border-bottom:3px solid var(--a)}
+.san b{display:block;font-size:2.8rem;color:var(--a)}
+footer{background:var(--r);color:var(--c);text-align:center;padding:26px 20px 40px}
+.sp{position:fixed;z-index:9;pointer-events:none;color:var(--a);font-size:1.4rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ai{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="bas">
+  <div class="sun" id="kun"></div>
+  <div class="cl" style="top:12%;width:120px;animation-duration:50s;animation-delay:-10s"></div>
+  <div class="cl" style="top:26%;width:90px;animation-duration:70s;animation-delay:-40s"></div>
+  <div class="cl" style="top:7%;width:150px;animation-duration:90s;animation-delay:-70s"></div>
+  <svg class="mt" id="tau" viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0 200V120L120 50L220 110L360 20L500 120L640 60L780 130L920 30L1060 110L1200 70V200Z" fill="#2b6cb0"/><path d="M0 200V150L150 100L300 150L450 90L600 155L760 105L920 160L1080 110L1200 150V200Z" fill="#1d4e89"/></svg>
+  <div class="dala"><div class="o o1"></div></div>
+  <div class="yu">
+    <i class="dm"></i><i class="dm" style="animation-delay:1.3s"></i><i class="dm" style="animation-delay:2.6s"></i>
+    <svg viewBox="0 0 150 100"><path d="M5 55Q75 -15 145 55Z" fill="#fff8e1"/><rect x="5" y="55" width="140" height="42" fill="#fff8e1"/><rect x="5" y="62" width="140" height="8" fill="#b3261e"/><path d="M62 97V74Q75 64 88 74V97Z" fill="#0a3d62"/><circle cx="75" cy="18" r="7" fill="#f2c230"/></svg>
+  </div>
+  <div class="at"><span class="ob">💨🏃</span></div>
+  <div class="qu"><span class="qi">🦅</span></div>
+  <div class="tit">
+    <h1>ЖЕЛАЯҚ</h1>
+    <p id="tip"></p>
+    <a class="tem" href="#kim">Төмен қарай ↓</a>
+  </div>
+</header>
+
+<div class="mq"><span>✦ Желдей жүйрік ✦ Алдына қара салмайтын Желаяқ ✦ Қазақ ертегісі ✦ Желдей жүйрік ✦ Алдына қара салмайтын Желаяқ ✦ Қазақ ертегісі ✦</span></div>
+
+<div class="cr">
+<svg class="shk" viewBox="-100 -100 200 200" fill="none" stroke="#0a3d62" stroke-width="3"><circle r="92"/><circle r="64"/><circle r="12"/><line x1="-92" x2="92"/><line x1="-92" x2="92" transform="rotate(30)"/><line x1="-92" x2="92" transform="rotate(60)"/><line x1="-92" x2="92" transform="rotate(90)"/><line x1="-92" x2="92" transform="rotate(120)"/><line x1="-92" x2="92" transform="rotate(150)"/></svg>
+<section class="sec ai" id="kim">
+  <h2>Желаяқ кім?</h2>
+  <p style="max-width:700px;margin:auto;text-align:center">Желаяқ — қазақ ертегілеріндегі жүгіргенде алдына қара салмайтын жүйрік батыр. Аты да соны айтып тұр: «жел аяқ», яғни аяғы желдей. Ол Ер Төстік, Саққұлақ, Көлтаусар, Таусоғар секілді ертегі кейіпкерлерімен қатар аталады.</p>
+  <blockquote>Жүгіргенде алдына қара салмайтын жүйрік!</blockquote>
+</section>
+</div>
+<div class="o o2"></div>
+
+<div class="cr">
+<section class="sec">
+  <h2 class="ai">Ертегі батырлары</h2>
+  <p class="nt ai" style="color:var(--k)">Картаны бассаңыз немесе үстіне барсаңыз, айналады</p>
+  <div class="tor" style="margin-top:20px">
+    <div class="kt ai l"><div class="ic"><div class="fr"><b>🏃</b>Желаяқ</div><div class="bk">Жүгіргенде алдына қара салмайтын жүйрік батыр. Желден озып, мәреге бірінші жетеді.</div></div></div>
+    <div class="kt ai" style="--d:.2s"><div class="ic"><div class="fr"><b>👂</b>Саққұлақ</div><div class="bk">Ертегі батыры. Аты айтып тұрғандай, құлағы өте сезімтал.</div></div></div>
+    <div class="kt ai" style="--d:.4s"><div class="ic"><div class="fr"><b>💧</b>Көлтаусар</div><div class="bk">Тұтас көлдің суын жұтып, түкіріп жібергенде өртті лезде өшіреді.</div></div></div>
+    <div class="kt ai r" style="--d:.6s"><div class="ic"><div class="fr"><b>⛰️</b>Таусоғар</div><div class="bk">Тау қопарып, көмек керек адамға жедел жетеді.</div></div></div>
+  </div>
+</section>
+</div>
+
+<div class="o o1" style="background-color:var(--k)"></div>
+<div class="nl">
+<section class="sec ai">
+  <h2>Желаяқтың қасиеттері</h2>
+  <div class="br"><span>Жылдамдық</span><i style="--w:95%"></i></div>
+  <div class="br"><span>Төзімділік</span><i style="--w:88%"></i></div>
+  <div class="br"><span>Ептілік</span><i style="--w:80%"></i></div>
+  <div class="br"><span>Достыққа адалдық</span><i style="--w:100%"></i></div>
+  <p class="nt">Шартты көрсеткіштер, әсем көрініс үшін берілген</p>
+</section>
+</div>
+<div class="o o1" style="background-color:var(--k)"></div>
+
+<div class="cr">
+<section class="sec">
+  <h2 class="ai">Желаяқ жолы</h2>
+  <div class="tl ai">
+    <div><b>Ертегіде.</b> Желаяқ — жүйріктігімен аты шыққан батыр, басқа ертегі кейіпкерлерімен қатар аталады.</div>
+    <div><b>Ауыздан-ауызға.</b> Қазақ ертегілері ұрпақтан ұрпаққа тарап, батырлық пен жақсылық жөнінде тағылым берген.</div>
+    <div><b>Суперқаһарман.</b> Желаяқ пен достары бүгінгі балаларға жылдам, ержүрек ертегі қаһармандары болып көрінеді.</div>
+    <div><b>Бүгін.</b> Ақтаудағы оқушылар Желаяқты компьютермен суреттеп, анимациялық ролик жасаған.</div>
+  </div>
+</section>
+</div>
+
+<div class="nl">
+<section class="sec ai">
+  <h2>Сандармен</h2>
+  <div class="san">
+    <div><b data-s="4">0</b>ертегі батыры осы бетте</div>
+    <div><b data-s="100">0</b>% жылдамдық (бейнелі түрде)</div>
+    <div><b data-s="1">0</b>желден озған — Желаяқ!</div>
+  </div>
+</section>
+</div>
+
+<div class="mq" style="background:var(--k)"><span>✦ Желден жүйрік ✦ Көлтаусар мен Таусоғар ✦ Саққұлақ пен Ер Төстік ✦ Желден жүйрік ✦ Көлтаусар мен Таусоғар ✦ Саққұлақ пен Ер Төстік ✦</span></div>
+<footer>Желаяқ · Қазақ ертегісінің жүйрік батыры · 2026</footer>
+
+<script>
+var mat="Ертегінің ең жүйрік батыры, желден озған Желаяқ",n1=0,ek=document.getElementById('tip');
+var tay1=setInterval(function(){n1++;ek.textContent=mat.slice(0,n1);if(n1>=mat.length)clearInterval(tay1)},70);
+var koz=new IntersectionObserver(function(zap){zap.forEach(function(amal){
+  if(amal.isIntersecting){amal.target.classList.add('koru');
+    amal.target.querySelectorAll('[data-s]').forEach(esep);koz.unobserve(amal.target)}})},{threshold:.15});
+document.querySelectorAll('.ai').forEach(function(san1){koz.observe(san1)});
+function esep(san2){var mak=+san2.dataset.s,k=0,qad=Math.max(1,Math.round(mak/60));
+  var tay=setInterval(function(){k+=qad;if(k>=mak){k=mak;clearInterval(tay)}san2.textContent=k.toLocaleString('ru-RU')},28)}
+document.querySelectorAll('.kt').forEach(function(san3){san3.addEventListener('click',function(){san3.classList.toggle('on')})});
+var tau=document.getElementById('tau'),kun=document.getElementById('kun');
+addEventListener('scroll',function(){var y=scrollY;tau.style.transform='translateY('+y*.12+'px)';kun.style.transform='translateY('+y*.3+'px)'});
+addEventListener('click',function(e){for(var i=0;i<9;i++){var s=document.createElement('span');s.className='sp';s.textContent='✦';
+  s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);
+  var q=Math.random()*6.28,r=40+Math.random()*60;
+  s.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:'translate('+Math.cos(q)*r+'px,'+Math.sin(q)*r+'px) scale(.2) rotate(180deg)',opacity:0}],{duration:900}).onfinish=(function(z){return function(){z.remove()}})(s)}});
+</script>
+</body>
+</html>
