@@ -1,312 +1,1098 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Алпамыс батыр — қазақ халқының батырлық жыры</title>
-<meta name="description" content="«Алпамыс батыр» — ерлік, адалдық және туған жерге деген махаббат туралы халық жыры.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;700;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --night:#0e1c33;
-  --night-2:#16294a;
-  --sky:#1d8a93;
-  --gold:#d9ac52;
-  --gold-soft:#f0d79a;
-  --paper:#f2f5f4;
-  --card:#ffffff;
-  --ink:#1b2433;
-  --muted:#556070;
-  --line:#d8dfdf;
-  --serif:"Noto Serif",Georgia,"Times New Roman",serif;
-  --sans:"Noto Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24' fill='none' stroke='%23d9ac52' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 12c0-6 8-8 10-3s-5 6-6 2M44 12c0-6-8-8-10-3s5 6 6 2M14 12h20'/%3E%3C/svg%3E");
-}
-@media (prefers-color-scheme:dark){
-  :root{--paper:#0b1424;--card:#121f36;--ink:#e8edf3;--muted:#a3b0c2;--line:#233350}
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--serif);line-height:1.2}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="«Алпамыс батыр» — ерлік, адалдық және туған жерге деген махаббат туралы халық жыры.">
+  <meta name="theme-color" content="#101b2e">
+  <title>Алпамыс батыр — қазақ халқының батырлық жыры</title>
 
-/* Hero */
-.top{position:relative;background:radial-gradient(120% 90% at 50% 0%,var(--night-2),var(--night) 70%);color:#fff;text-align:center;padding:96px 20px 110px;overflow:hidden}
-.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;background:var(--orn) repeat-x center/48px 24px;opacity:.9}
-.moon{position:absolute;top:-70px;right:-70px;width:260px;height:260px;border-radius:50%;border:2px solid #d9ac5244;box-shadow:0 0 0 24px #d9ac520d,0 0 0 56px #d9ac5208}
-.top h1{font-size:clamp(46px,9vw,96px);font-weight:800;letter-spacing:.01em;color:#fff}
-.top .sub{margin:14px auto 0;max-width:34ch;font-family:var(--serif);font-size:clamp(18px,2.6vw,24px);color:var(--gold-soft)}
-.top .lead{margin:28px auto 0;max-width:62ch;color:#cdd7e6;font-size:18px}
-.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.btn{display:inline-block;padding:13px 28px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s ease,background .2s ease;will-change:transform}
-.btn.gold{background:var(--gold);color:#1a1405}
-.btn.line{border:2px solid #ffffff55;color:#fff}
-.btn:hover{transform:translateY(-2px)}
-.btn.gold:hover{background:var(--gold-soft)}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-/* Nav */
-nav{position:sticky;top:0;z-index:20;background:#0e1c33ee;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff1f}
-nav ul{list-style:none;display:flex;justify-content:center;gap:4px;padding:10px 12px;overflow-x:auto;scrollbar-width:none}
-nav a{display:block;padding:8px 16px;border-radius:999px;color:#cdd7e6;text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap;transition:background .2s,color .2s}
-nav a:hover{color:#fff;background:#ffffff14}
-nav a.on{background:var(--gold);color:#1a1405}
-
-/* Layout */
-main{max-width:1040px;margin:0 auto;padding:0 20px}
-.block{padding:84px 0 0}
-.block>h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:8px}
-.block>h2::after{content:"";display:block;width:64px;height:4px;margin-top:14px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--sky))}
-.block>.intro{margin-top:22px;max-width:68ch;color:var(--muted)}
-.block p+p{margin-top:14px}
-
-/* Facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:-48px;position:relative;z-index:2;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px -22px #0e1c3366;overflow:hidden}
-.fact{padding:26px 28px;transition:background .3s ease}
-.fact+.fact{border-left:1px solid var(--line)}
-.fact b{display:block;font-family:var(--serif);font-size:20px;color:var(--sky)}
-.fact span{color:var(--muted);font-size:15px}
-.fact:hover{background:#d9ac5212}
-
-/* History */
-.two{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;margin-top:26px}
-.note{border-left:4px solid var(--gold);padding:6px 0 6px 22px;font-family:var(--serif);font-size:20px;line-height:1.55}
-
-/* Traits */
-.traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:34px}
-.trait{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:14px;padding:28px;transition:transform .3s ease,box-shadow .3s ease;will-change:transform}
-.trait:nth-child(2){border-top-color:var(--gold)}
-.trait:nth-child(3){border-top-color:var(--night-2)}
-@media (prefers-color-scheme:dark){.trait:nth-child(3){border-top-color:#5d7bb0}}
-.trait h3{font-size:21px;margin-bottom:8px}
-.trait p{color:var(--muted);font-size:16px}
-.trait:hover{transform:translateY(-6px);box-shadow:0 18px 32px -20px #0e1c3377}
-
-/* Timeline */
-.steps{list-style:none;margin-top:36px;position:relative;counter-reset:s}
-.steps::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.steps li{position:relative;padding:0 0 30px 68px;counter-increment:s}
-.steps li:last-child{padding-bottom:0}
-.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--night);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px;border:2px solid var(--gold)}
-.steps h3{font-size:20px;margin-bottom:4px}
-.steps p{color:var(--muted);font-size:16px}
-
-/* Quote */
-.quote{margin-top:84px;background:radial-gradient(120% 140% at 50% 0%,var(--night-2),var(--night));color:#fff;text-align:center;border-radius:22px;padding:64px 28px;position:relative;overflow:hidden}
-.quote::before,.quote::after{content:"";position:absolute;left:0;right:0;height:24px;background:var(--orn) repeat-x center/48px 24px;opacity:.8}
-.quote::before{top:14px}.quote::after{bottom:14px}
-.quote blockquote{font-family:var(--serif);font-size:clamp(24px,4vw,38px);font-weight:700;line-height:1.4;max-width:22ch;margin:0 auto;color:var(--gold-soft)}
-
-footer{margin-top:84px;background:var(--night);color:#cdd7e6;text-align:center;padding:36px 20px;font-size:15px}
-footer p+p{margin-top:4px;color:var(--gold-soft)}
-
-#up{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:var(--night);color:var(--gold);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .2s ease;will-change:transform,opacity}
-#up.show{opacity:1;pointer-events:auto}
-#up:hover{transform:scale(1.08)}
-
-/* Оптимизированные анимации */
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease-out,transform .5s ease-out;will-change:transform,opacity}
-.js .rv.in{opacity:1;transform:none}
-
-@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
-
-.top>*:not(.stars):not(.moon){position:relative}
-.top .sub,.top .lead,.top .btns,.top h1{animation:rise .8s cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity}
-.top .sub{animation-delay:.15s}
-.top .lead{animation-delay:.3s}
-.top .btns{animation-delay:.45s}
-
-.stars{position:absolute;inset:0;pointer-events:none}
-.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold-soft);animation:twinkle 3s ease-in-out infinite;will-change:opacity}
-
-#bar{position:fixed;top:0;left:0;width:100%;height:3px;z-index:30;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--sky));will-change:transform}
-
-@media (max-width:760px){
-  body{font-size:16px}
-  .top{padding:72px 18px 96px}
-  .two{grid-template-columns:1fr;gap:24px}
-  .fact+.fact{border-left:0;border-top:1px solid var(--line)}
-  nav ul{justify-content:flex-start}
-  .block{padding-top:64px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .rv{opacity:1;transform:none}
-  #bar{display:none}
-}
-</style>
-</head>
-<body>
-<div id="bar" aria-hidden="true"></div>
-
-<header class="top" id="home">
-  <div class="moon" aria-hidden="true"></div>
-  <div class="stars" aria-hidden="true"></div>
-  <h1>Алпамыс батыр</h1>
-  <p class="sub">Қазақ халқының батырлық жыры</p>
-  <p class="lead">Ерлік пен адалдық, туған жерге деген сүйіспеншілік және отбасына деген құрмет туралы ұрпақтан ұрпаққа жеткен эпос.</p>
-  <div class="btns">
-    <a class="btn gold" href="#plot">Жыр желісі</a>
-    <a class="btn line" href="#hero">Батыр кім?</a>
-  </div>
-</header>
-
-<nav aria-label="Бөлімдер">
-  <ul>
-    <li><a href="#home">Басты бет</a></li>
-    <li><a href="#history">Тарихы</a></li>
-    <li><a href="#hero">Батыр</a></li>
-    <li><a href="#plot">Желісі</a></li>
-    <li><a href="#meaning">Маңызы</a></li>
-  </ul>
-</nav>
-
-<main>
-  <div class="facts rv" role="list">
-    <div class="fact" role="listitem"><b>Батырлық эпос</b><span>Халық жырының ең ірі түрі</span></div>
-    <div class="fact" role="listitem"><b>Түркі халықтарының мұрасы</b><span>Түрлі нұсқада айтылып келеді</span></div>
-    <div class="fact" role="listitem"><b>Ауызша дәстүр</b><span>Жыршылар арқылы жеткен</span></div>
-  </div>
-
-  <section class="block rv" id="history">
-    <h2>Жырдың тарихы</h2>
-    <div class="two">
-      <div>
-        <p>«Алпамыс батыр» — қазақ халқының ауыз әдебиетіндегі көне эпостық шығармалардың бірі. Жыр ұрпақтан ұрпаққа ауызша таралып, халықтың рухани мұрасына айналған.</p>
-        <p>Шығармада Алпамыстың басынан өткен қиындықтар, жауларымен күресі және еліне деген сүйіспеншілігі суреттеледі.</p>
-      </div>
-      <p class="note">Жыр — тек батырдың ерлігі емес, бүкіл халықтың рухы мен жады.</p>
-    </div>
-  </section>
-
-  <section class="block rv" id="hero">
-    <h2>Алпамыс батыр кім?</h2>
-    <p class="intro">Алпамыс — күшті, батыл, ақылды және әділ батыр. Ол өз халқын қорғау үшін көптеген қиындықтарды жеңіп, ерлігімен ел есінде қалған.</p>
-    <div class="traits">
-      <article class="trait"><h3>💪 Батырлық</h3><p>Қандай қиындық болса да қорықпай күреседі.</p></article>
-      <article class="trait"><h3>❤️ Адалдық</h3><p>Отбасына және халқына адал болады.</p></article>
-      <article class="trait"><h3>⚖️ Әділдік</h3><p>Әрқашан шындық пен әділдікті қорғайды.</p></article>
-    </div>
-  </section>
-
-  <section class="block rv" id="plot">
-    <h2>Жыр желісі</h2>
-    <p class="intro">Жырдың негізгі оқиғалары қысқаша осындай ретпен өрбиді.</p>
-    <ol class="steps">
-      <li><h3>Батырдың өсуі</h3><p>Алпамыс ерекше күшті, өжет болып өседі және ел арасында даңқы шығады.</p></li>
-      <li><h3>Сынақтар мен жорық</h3><p>Ол ерлікпен сынақтардан өтіп, жаудың еліне аттанады.</p></li>
-      <li><h3>Тұтқындағы жылдар</h3><p>Жау елінде ұзақ уақыт тұтқында болады, бірақ рухы сынбайды.</p></li>
-      <li><h3>Еліне оралу</h3><p>Алпамыс туған жеріне қайтып келіп, әділдікті қалпына келтіреді.</p></li>
-    </ol>
-  </section>
-
-  <section class="block rv" id="meaning">
-    <h2>Жырдың тәрбиелік маңызы</h2>
-    <div class="two">
-      <div>
-        <p>«Алпамыс батыр» жыры жас ұрпақты отансүйгіштікке, батылдыққа, адамгершілікке және үлкенді құрметтеуге тәрбиелейді.</p>
-        <p>Бұл шығарма — қазақ халқының тарихын, мәдениетін және ұлттық рухын танытатын құнды мұра.</p>
-      </div>
-      <p class="note">Өткенді білу — болашаққа берік тірек болу.</p>
-    </div>
-  </section>
-
-  <div class="quote rv">
-    <blockquote>«Елін сүйген ер болар,<br>Ерлік жасаған ел болар!»</blockquote>
-  </div>
-</main>
-
-<footer>
-  <p>© 2026 Алпамыс батыр | Қазақ халқының рухани мұрасы</p>
-  <p>Қазақ әдебиеті 🇰🇿</p>
-</footer>
-
-<button id="up" type="button" aria-label="Жоғарыға">↑</button>
-
-<script>
-document.documentElement.classList.add('js');
-(function(){
-  // Intersection Observer для блоков
-  var rv = document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){
-    rv.forEach(function(e){ e.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, {threshold: 0.1});
-    rv.forEach(function(e){ io.observe(e); });
-
-    var links = document.querySelectorAll('nav a'), map = {};
-    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-    
-    var so = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){
-          links.forEach(function(a){ a.classList.remove('on'); });
-          var a = map[e.target.id];
-          if(a){
-            a.classList.add('on');
-            a.scrollIntoView({inline:'center', block:'nearest'});
-          }
-        }
-      });
-    }, {rootMargin: '-40% 0px -50% 0px'});
-
-    Object.keys(map).forEach(function(id){
-      var s = document.getElementById(id);
-      if(s) so.observe(s);
-    });
-  }
-
-  // Генерация звезд через DocumentFragment для минимизации перерисовок
-  var st = document.querySelector('.stars');
-  var frag = document.createDocumentFragment();
-  for(var i = 0; i < 18; i++){
-    var d = document.createElement('i');
-    d.style.left = (Math.random() * 100) + '%';
-    d.style.top = (Math.random() * 85) + '%';
-    d.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
-    d.style.animationDuration = (2.5 + Math.random() * 2.5).toFixed(2) + 's';
-    if(i % 3 === 0) d.style.width = d.style.height = '2px';
-    frag.appendChild(d);
-  }
-  st.appendChild(frag);
-
-  // Плавная обработка скролла через requestAnimationFrame
-  var up = document.getElementById('up'), bar = document.getElementById('bar');
-  var ticking = false;
-
-  function updateScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    var currentY = window.scrollY;
-    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(currentY / h, 1) : 0) + ')';
-    up.classList.toggle('show', currentY > 500);
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function(){
-    if(!ticking){
-      requestAnimationFrame(updateScroll);
-      ticking = true;
+  <style>
+    :root {
+      color-scheme: light;
+      --night: #101b2e;
+      --night-light: #1c3150;
+      --blue: #267f83;
+      --gold: #e2b75d;
+      --gold-light: #f7dfa4;
+      --paper: #f5f6f2;
+      --card: #fff;
+      --ink: #202a38;
+      --muted: #647080;
+      --line: #e2e6e2;
+      --shadow: 0 20px 50px -28px #10203b55;
+      --serif: "Noto Serif", Georgia, "Times New Roman", serif;
+      --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
-  }, {passive: true});
 
-  updateScroll();
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  up.addEventListener('click', function(){
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
-})();
-</script>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 82px;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::selection {
+      color: var(--night);
+      background: var(--gold-light);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    h1,
+    h2,
+    h3,
+    blockquote {
+      font-family: var(--serif);
+    }
+
+    /* Басты бөлім */
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 620px;
+      place-items: center;
+      overflow: hidden;
+      padding: 100px 20px 125px;
+      color: #fff;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% -20%, #315278 0, transparent 55%),
+        linear-gradient(140deg, #172a45, var(--night) 68%);
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero::before {
+      inset: 0;
+      opacity: .24;
+      background-image:
+        linear-gradient(30deg, transparent 48%, #e2b75d1a 49%, #e2b75d1a 50%, transparent 51%),
+        linear-gradient(150deg, transparent 48%, #e2b75d12 49%, #e2b75d12 50%, transparent 51%);
+      background-size: 100px 100px;
+      mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    }
+
+    .hero::after {
+      right: -100px;
+      bottom: -240px;
+      left: -100px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--paper);
+    }
+
+    .hero-inner {
+      width: min(100%, 850px);
+    }
+
+    .moon {
+      position: absolute;
+      top: 80px;
+      right: max(8%, calc((100vw - 1200px) / 2));
+      width: 110px;
+      aspect-ratio: 1;
+      border: 1px solid #f7dfa455;
+      border-radius: 50%;
+      box-shadow: 0 0 0 18px #f7dfa40c, 0 0 0 40px #f7dfa408;
+      animation: moon-glow 5s ease-in-out infinite;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 10vw, 104px);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1.05;
+      text-wrap: balance;
+      animation: rise .9s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .hero-subtitle {
+      margin-top: 20px;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.6vw, 25px);
+      animation: rise .9s .12s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .hero-lead {
+      max-width: 620px;
+      margin: 22px auto 0;
+      color: #d5deeb;
+      font-size: clamp(15px, 2vw, 18px);
+      animation: rise .9s .24s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 34px;
+      animation: rise .9s .36s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: #241b09;
+      background: var(--gold);
+      box-shadow: 0 10px 28px #e2b75d33;
+    }
+
+    .button-primary:hover {
+      background: var(--gold-light);
+      box-shadow: 0 14px 34px #e2b75d55;
+    }
+
+    .button-ghost {
+      border-color: #ffffff48;
+      color: #fff;
+      background: #ffffff08;
+    }
+
+    .button-ghost:hover {
+      border-color: #ffffff9c;
+      background: #ffffff16;
+    }
+
+    /* Жоғарғы мәзір */
+    .site-nav {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid #ffffff16;
+      background: #101b2eeb;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .nav-list {
+      display: flex;
+      width: min(100%, 1100px);
+      justify-content: center;
+      gap: 5px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      overflow-x: auto;
+      list-style: none;
+      scrollbar-width: none;
+    }
+
+    .nav-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 8px 15px;
+      border-radius: 999px;
+      color: #d4dce8;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      color: #231a08;
+      background: var(--gold);
+    }
+
+    /* Негізгі мазмұн */
+    main {
+      width: min(100% - 40px, 1040px);
+      margin: 0 auto;
+    }
+
+    .facts {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: -55px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .fact {
+      position: relative;
+      padding: 24px 25px;
+      text-align: center;
+      transition: background .3s ease;
+    }
+
+    .fact + .fact {
+      border-left: 1px solid var(--line);
+    }
+
+    .fact:hover {
+      background: #e2b75d12;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--blue);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section {
+      padding-top: 90px;
+      scroll-margin-top: 85px;
+    }
+
+    .section-heading {
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      font-size: clamp(30px, 5vw, 43px);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    .section h2::after {
+      display: block;
+      width: 62px;
+      height: 4px;
+      margin-top: 15px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+      content: "";
+    }
+
+    .section p {
+      color: var(--muted);
+    }
+
+    .section p + p {
+      margin-top: 13px;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin-top: 18px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.35fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .note {
+      padding: 18px 0 18px 24px;
+      border-left: 3px solid var(--gold);
+      color: var(--night);
+      font-family: var(--serif);
+      font-size: clamp(19px, 2.4vw, 23px);
+      line-height: 1.55;
+    }
+
+    /* Қасиеттер */
+    .traits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .trait {
+      position: relative;
+      min-height: 190px;
+      padding: 26px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 8px 24px -22px #10203b80;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .trait::after {
+      position: absolute;
+      right: -35px;
+      bottom: -52px;
+      width: 120px;
+      height: 120px;
+      border: 1px solid #e2b75d38;
+      border-radius: 50%;
+      box-shadow: 0 0 0 12px #e2b75d0d, 0 0 0 28px #e2b75d09;
+      content: "";
+      transition: transform .4s ease;
+    }
+
+    .trait:hover {
+      transform: translateY(-7px);
+      border-color: #e2b75d88;
+      box-shadow: 0 20px 40px -24px #10203b66;
+    }
+
+    .trait:hover::after {
+      transform: scale(1.14);
+    }
+
+    .trait-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      margin-bottom: 17px;
+      border-radius: 13px;
+      background: #e2b75d20;
+      font-size: 22px;
+    }
+
+    .trait h3 {
+      margin-bottom: 7px;
+      font-size: 20px;
+    }
+
+    .trait p {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+    }
+
+    /* Оқиғалар тізбегі */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 0;
+      margin-top: 34px;
+      list-style: none;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 21px;
+      width: 2px;
+      background: linear-gradient(var(--gold), var(--blue), var(--line));
+      content: "";
+    }
+
+    .timeline li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 22px;
+      padding-bottom: 28px;
+    }
+
+    .timeline li:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-number {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold-light);
+      background: var(--night);
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .timeline li:hover .timeline-number {
+      transform: scale(1.1);
+      background: var(--blue);
+    }
+
+    .timeline h3 {
+      margin: 1px 0 4px;
+      font-size: 20px;
+    }
+
+    .timeline p {
+      font-size: 14px;
+    }
+
+    /* Дәйексөз */
+    .quote {
+      position: relative;
+      margin-top: 90px;
+      padding: 76px 28px;
+      overflow: hidden;
+      border-radius: 22px;
+      color: #fff;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, #294668, transparent 70%),
+        var(--night);
+      box-shadow: var(--shadow);
+    }
+
+    .quote::before,
+    .quote::after {
+      position: absolute;
+      right: 28px;
+      left: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e2b75d88, transparent);
+      content: "";
+    }
+
+    .quote::before {
+      top: 24px;
+    }
+
+    .quote::after {
+      bottom: 24px;
+    }
+
+    .quote-mark {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 62px;
+      line-height: 1;
+      opacity: .8;
+    }
+
+    .quote blockquote {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--gold-light);
+      font-size: clamp(23px, 4.2vw, 38px);
+      font-weight: 700;
+      line-height: 1.5;
+      text-wrap: balance;
+    }
+
+    /* Төменгі бөлік */
+    footer {
+      margin-top: 90px;
+      padding: 35px 20px;
+      color: #d5deeb;
+      text-align: center;
+      background: var(--night);
+    }
+
+    footer p + p {
+      margin-top: 4px;
+      color: var(--gold-light);
+      font-size: 13px;
+    }
+
+    /* Скролл көрсеткіші және жоғары батырмасы */
+    .progress {
+      position: fixed;
+      z-index: 40;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+      pointer-events: none;
+    }
+
+    .back-to-top {
+      position: fixed;
+      z-index: 30;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid #e2b75d88;
+      border-radius: 50%;
+      color: var(--gold-light);
+      background: var(--night);
+      box-shadow: 0 8px 24px #10203b33;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease, background .25s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--blue);
+    }
+
+    /* Көріну анимациялары */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .traits .trait:nth-child(2) {
+      transition-delay: .08s;
+    }
+
+    .traits .trait:nth-child(3) {
+      transition-delay: .16s;
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      box-shadow: 0 0 10px #f7dfa4aa;
+      animation: twinkle var(--duration, 3s) ease-in-out var(--delay, 0s) infinite;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: .25;
+        transform: scale(.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
+    }
+
+    @keyframes moon-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 18px #f7dfa40c, 0 0 0 40px #f7dfa408;
+      }
+      50% {
+        box-shadow: 0 0 0 25px #f7dfa411, 0 0 0 52px #f7dfa40a;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 560px;
+        padding: 80px 20px 110px;
+      }
+
+      .moon {
+        top: 38px;
+        right: 8%;
+        width: 72px;
+      }
+
+      .nav-list {
+        justify-content: flex-start;
+      }
+
+      main {
+        width: min(100% - 32px, 600px);
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+        margin-top: -42px;
+      }
+
+      .fact {
+        padding: 17px 20px;
+      }
+
+      .fact + .fact {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .section {
+        padding-top: 68px;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 23px;
+      }
+
+      .traits {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .trait {
+        min-height: 0;
+      }
+
+      .quote {
+        margin-top: 68px;
+        padding: 65px 22px;
+      }
+
+      footer {
+        margin-top: 68px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: min(100%, 290px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .nav-list a {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      .timeline li {
+        gap: 15px;
+      }
+
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .progress {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="hero" id="home">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Қазақтың рухани мұрасы</p>
+      <h1>Алпамыс батыр</h1>
+      <p class="hero-subtitle">Қазақ халқының батырлық жыры</p>
+      <p class="hero-lead">
+        Ерлік пен адалдық, туған жерге деген сүйіспеншілік және отбасына құрмет
+        туралы ұрпақтан ұрпаққа жеткен эпос.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#plot">Жыр желісі <span aria-hidden="true">↓</span></a>
+        <a class="button button-ghost" href="#hero">Батыр туралы</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Бөлімдер">
+    <ul class="nav-list">
+      <li><a href="#home" class="active">Басты бет</a></li>
+      <li><a href="#history">Тарихы</a></li>
+      <li><a href="#hero">Батыр</a></li>
+      <li><a href="#plot">Жыр желісі</a></li>
+      <li><a href="#meaning">Маңызы</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="facts reveal" aria-label="Жыр туралы қысқаша">
+      <div class="fact">
+        <strong>Батырлық эпос</strong>
+        <span>Халық жырының ірі түрі</span>
+      </div>
+      <div class="fact">
+        <strong>Түркі мұрасы</strong>
+        <span>Түрлі нұсқада таралған</span>
+      </div>
+      <div class="fact">
+        <strong>Ауызша дәстүр</strong>
+        <span>Жыршылар арқылы жеткен</span>
+      </div>
+    </section>
+
+    <section class="section reveal" id="history">
+      <div class="section-heading">
+        <span class="section-kicker">Халық мұрасы</span>
+        <h2>Жырдың тарихы</h2>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <p>
+            «Алпамыс батыр» — қазақ халқының ауыз әдебиетіндегі көне эпостық
+            шығармалардың бірі. Жыр ұрпақтан ұрпаққа ауызша таралып, халықтың
+            рухани мұрасына айналған.
+          </p>
+          <p>
+            Шығармада Алпамыстың басынан өткен қиындықтары, жауларымен күресі
+            және еліне деген сүйіспеншілігі суреттеледі.
+          </p>
+        </div>
+        <p class="note">Жыр — батырдың ерлігімен бірге халықтың рухы мен жадын танытатын мұра.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="hero">
+      <div class="section-heading">
+        <span class="section-kicker">Ел қорғаған ер</span>
+        <h2>Алпамыс батыр кім?</h2>
+      </div>
+
+      <p class="intro">
+        Алпамыс — күшті, батыл, ақылды әрі әділ батыр. Ол халқын қорғау жолында
+        талай қиындықты жеңіп, ерлігімен ел есінде қалған.
+      </p>
+
+      <div class="traits">
+        <article class="trait">
+          <span class="trait-icon" aria-hidden="true">⚔️</span>
+          <h3>Батырлық</h3>
+          <p>Қандай қиындық болса да қаймықпай қарсы тұрады.</p>
+        </article>
+        <article class="trait">
+          <span class="trait-icon" aria-hidden="true">❤️</span>
+          <h3>Адалдық</h3>
+          <p>Отбасына, халқына және туған жеріне адал болады.</p>
+        </article>
+        <article class="trait">
+          <span class="trait-icon" aria-hidden="true">⚖️</span>
+          <h3>Әділдік</h3>
+          <p>Шындықты қорғап, ел ішіндегі әділдікті қалпына келтіреді.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="plot">
+      <div class="section-heading">
+        <span class="section-kicker">Оқиғалар реті</span>
+        <h2>Жыр желісі</h2>
+      </div>
+
+      <p class="intro">Жырдағы негізгі оқиғалар бірнеше кезеңмен өрбиді.</p>
+
+      <ol class="timeline">
+        <li>
+          <span class="timeline-number" aria-hidden="true">1</span>
+          <div>
+            <h3>Батырдың өсуі</h3>
+            <p>Алпамыс ерекше күшті, өжет болып өсіп, ел арасында даңқы шығады.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-number" aria-hidden="true">2</span>
+          <div>
+            <h3>Сынақтар мен жорық</h3>
+            <p>Ол ерлікпен түрлі сынақтан өтіп, жау еліне аттанады.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-number" aria-hidden="true">3</span>
+          <div>
+            <h3>Тұтқындағы жылдар</h3>
+            <p>Жау елінде ұзақ уақыт тұтқында болса да, рухы сынбайды.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-number" aria-hidden="true">4</span>
+          <div>
+            <h3>Еліне оралу</h3>
+            <p>Алпамыс туған жеріне оралып, әділдікті қайта орнатады.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section reveal" id="meaning">
+      <div class="section-heading">
+        <span class="section-kicker">Тәрбиелік мәні</span>
+        <h2>Жырдың маңызы</h2>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <p>
+            «Алпамыс батыр» жыры жас ұрпақты отансүйгіштікке, батылдыққа,
+            адамгершілікке және үлкенді құрметтеуге тәрбиелейді.
+          </p>
+          <p>
+            Бұл шығарма қазақ халқының тарихын, мәдениетін және ұлттық рухын
+            танытатын құнды мұра болып саналады.
+          </p>
+        </div>
+        <p class="note">Өткенді білу — болашаққа берік тірек.</p>
+      </div>
+    </section>
+
+    <section class="quote reveal" aria-label="Жырдан түйін">
+      <span class="quote-mark" aria-hidden="true">“</span>
+      <blockquote>Елін сүйген ер болар,<br>Ерлік жасаған ел болар!</blockquote>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Алпамыс батыр | Қазақ халқының рухани мұрасы</p>
+    <p>Қазақ әдебиеті 🇰🇿</p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Беттің басына оралу">
+    ↑
+  </button>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealItems = document.querySelectorAll(".reveal");
+      const navLinks = [...document.querySelectorAll(".nav-list a")];
+      const progress = document.getElementById("progress");
+      const backToTop = document.getElementById("backToTop");
+      const stars = document.getElementById("stars");
+
+      // Жұлдыздарды бір рет жасап, анимация уақытын кездейсоқ береміз.
+      if (!reduceMotion && stars) {
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < 28; i += 1) {
+          const star = document.createElement("span");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 82}%`;
+          star.style.setProperty("--delay", `${Math.random() * 4}s`);
+          star.style.setProperty("--duration", `${2.5 + Math.random() * 3}s`);
+
+          if (i % 4 === 0) {
+            star.style.width = "2px";
+            star.style.height = "2px";
+          }
+
+          fragment.appendChild(star);
+        }
+
+        stars.appendChild(fragment);
+      }
+
+      // Бөлімдерді экранға кіргенде жұмсақ көрсету.
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+
+      // Қаралып тұрған бөлімді мәзірде белгілеу.
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            navLinks.forEach((link) => {
+              const isActive = link.getAttribute("href") === `#${entry.target.id}`;
+              link.classList.toggle("active", isActive);
+
+              if (isActive && window.innerWidth < 760) {
+                link.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+              }
+            });
+          });
+        }, {
+          rootMargin: "-35% 0px -55% 0px",
+          threshold: 0
+        });
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      // Скролл жолағы мен жоғарыға оралу батырмасы.
+      let scrollQueued = false;
+
+      const updateScrollUI = () => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progressValue = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+
+        if (progress) {
+          progress.style.transform = `scaleX(${Math.min(progressValue, 1)})`;
+        }
+
+        backToTop.classList.toggle("visible", window.scrollY > 450);
+        scrollQueued = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!scrollQueued) {
+          window.requestAnimationFrame(updateScrollUI);
+          scrollQueued = true;
+        }
+      }, { passive: true });
+
+      updateScrollUI();
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
